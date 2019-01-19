@@ -1,0 +1,111 @@
+.header {
+  width: 100%;
+  background-color: #f9fafb;
+}
+
+.container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 22px 30px 24px;
+}
+
+.headerTop,
+.headerBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delivery {
+  font-size: 14px;
+  color: #8a93a3;
+  cursor: pointer;
+}
+
+.deliveryCity {
+  color: #4ad9bd;
+  font-weight: 600;
+}
+
+.promocode,
+.goldStatus {
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.promocode {
+  color: #ff8282;
+}
+
+.goldStatus {
+  color: #ffa000;
+}
+
+.promocode img,
+.goldStatus img,
+.delivery img {
+  margin-right: 6px;
+}
+
+.wallet {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8a93a3;
+  cursor: pointer;
+}
+
+.walletSumm {
+  font-size: 16px;
+  font-weight: bold;
+  color: #4ad9bd;
+}
+
+.headerBottom {
+  margin-top: 20px;
+}
+
+.headerNavList {
+  display: flex;
+}
+
+.headerNavItem {
+  margin-right: 35px;
+  color: #8a93a3;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.headerNavItem:last-child {
+  margin-right: 0;
+}
+
+.cart {
+  display: flex;
+  align-items: flex-end;
+  font-size: 14px;
+  font-weight: 600;
+  color: #8a93a3;
+  position: relative;
+  cursor: pointer
+}
+
+.cartAmount {
+  position: absolute;
+  top: -4px;
+  left: 15px;
+  width: 18px;
+  height: 15px;
+  background-color: #ff8282;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.cart img {
+  margin-right: 9px;
+}

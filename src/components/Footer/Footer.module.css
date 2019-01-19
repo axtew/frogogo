@@ -1,0 +1,120 @@
+.footer {
+  margin-top: 75px;
+  background-color: #f9fafb;
+  color: #fff;
+  width: 100%;
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 30px;
+  padding-top: 60px;
+}
+
+.footerTop {
+  flex: 1;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eceff4;
+}
+
+.sectionsItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footerSections {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sectionsContent {
+  display: flex;
+  flex-direction: column;
+  margin-top: 19px;
+}
+
+.sectionsTitle {
+  line-height: 22px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #c6cdd7;
+}
+
+.sectionsLink {
+  color: #1e1e3c;
+  text-decoration: none;
+  line-height: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sectionsLink:hover {
+  color: #4ad9bd;
+}
+
+.cardsItem {
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.cardsItem:first-child {
+  margin-left: 0;
+}
+
+.paymentInfo {
+  max-width: 300px;
+  color: #1e1e3c;
+  margin-top: 25px;
+  font-size: 16px;
+}
+
+.contacts {
+  display: flex;
+  align-items: center;
+  color: #1e1e3c;
+  line-height: 24px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.contacts a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contactsIcon {
+  margin-right: 22px;
+}
+
+.socialsList {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 53px;
+}
+
+.footerBottom {
+  padding: 40px 0;
+}
+
+.footerBottomList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footerBottomLink {
+  color: #8a93a3;
+  text-decoration: none;
+  line-height: 23px;
+  font-size: 17px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.footerBottomLink:hover {
+  color: #4ad9bd;
+}
