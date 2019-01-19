@@ -60,7 +60,7 @@ export default (state = initState, action) => {
       );
       let gift = state.cart.filter(product => product.price === 0);
 
-      if (state.cart.length === 2 && gift.length) {
+      if (state.cart.length === 2 && gift.length && currentProduct.price !== 0) {
         currentCart = [];
       }
 

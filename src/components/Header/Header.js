@@ -12,7 +12,7 @@ import cart from "./assets/icon-cart.svg";
 import arrow from "./assets/icon-arrow.svg";
 import styles from "./Header.module.css";
 
-const initUser = { cart: 3, gold: true, bonuses: 4700 };
+const initUser = { cart: 6, gold: true, bonuses: 4700 };
 
 class Header extends Component {
   componentDidMount() {

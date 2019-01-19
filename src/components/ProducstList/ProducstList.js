@@ -28,8 +28,8 @@ let initCart = [
     image: img1,
     amount: 2,
     price: 1790,
-    discont: 2000,
-    minDiscont: 2000,
+    discont: 1000,
+    minDiscont: 1000,
     set: false,
     params: {
       type: "color",
@@ -254,12 +254,16 @@ class ProducstList extends Component {
                       </div>
                       <div className={styles.discont}>
                         Можно оплатить с личного счета
-                        <span>{`${summReplacer(product.discont)} ₽`}</span>
+                        <span>{`${summReplacer(
+                          product.discont * product.amount
+                        )} ₽`}</span>
                       </div>
                       {product.minDiscont !== 0 ? (
                         <div className={styles.minDiscont}>
                           Минимально к оплате с личного счета
-                          <span>{`${summReplacer(product.minDiscont)} ₽`}</span>
+                          <span>{`${summReplacer(
+                            product.minDiscont * product.amount
+                          )} ₽`}</span>
                         </div>
                       ) : null}
                     </div>

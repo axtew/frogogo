@@ -19,27 +19,36 @@ class Main extends Component {
     usedBonuses: 0,
     totalPrice: 0,
     gold: true,
-    returnBonuses: 0
+    returnBonuses: 0,
+    maxDiscont: 0,
+    minDiscont: 0
   };
 
   componentDidUpdate(prevProps) {
     const { cart } = this.props;
     let productsAmount = 0;
     let fullPrice = 0;
+    let maxDiscont = 0;
+    let minDiscont = 0;
 
     if (prevProps.cart !== cart)
       cart.map(product => {
         productsAmount += product.amount;
         fullPrice += product.price * product.amount;
+        maxDiscont += product.discont * product.amount;
+        minDiscont += product.minDiscont * product.amount;
         return this.setState({
           fullPrice,
-          productsAmount
+          productsAmount,
+          maxDiscont,
+          minDiscont
         });
       });
   }
 
   render() {
     const { user, cart } = this.props;
+    const { maxDiscont, value, minDiscont } = this.state;
 
     return (
       <div className={styles.container}>
@@ -64,19 +73,33 @@ class Main extends Component {
             </p>
             <div className={styles.bonusesRange}>
               <div className={styles.minMaxBonuses}>
-                <span>{`${summReplacer(0)} ₽`}</span>
+                <span>{`${summReplacer(minDiscont !== 0 ? minDiscont : 0)} ₽`}</span>
                 <span>
                   {`${
-                    user.bonuses !== undefined ? summReplacer(user.bonuses) : 0
+                    user.bonuses !== undefined
+                      ? summReplacer(
+                          user.bonuses !== undefined
+                            ? user.bonuses < maxDiscont
+                              ? user.bonuses
+                              : maxDiscont
+                            : 100
+                        )
+                      : 0
                   } ₽`}
                 </span>
               </div>
               <div style={{ marginTop: "10px" }}>
                 <InputRange
-                  maxValue={user.bonuses !== undefined ? user.bonuses : 100}
-                  minValue={0}
+                  maxValue={
+                    user.bonuses !== undefined
+                      ? user.bonuses < maxDiscont
+                        ? user.bonuses
+                        : maxDiscont
+                      : 100
+                  }
+                  minValue={minDiscont !== 0 ? minDiscont : 0}
                   step={100}
-                  value={this.state.value}
+                  value={value}
                   onChange={value => this.setState({ value })}
                 />
               </div>
@@ -84,12 +107,14 @@ class Main extends Component {
 
             <div className={styles.confirmationOrder}>
               <div className={styles.confirmationOrderContainer}>
-                <div className={styles.deliveryInfo}>
-                  Доставка
-                  <span
-                    className={styles.deliveryInfoAmount}
-                  >{`Бесплатно`}</span>
-                </div>
+                {this.state.fullPrice - value >= 1000 ? (
+                  <div className={styles.deliveryInfo}>
+                    Доставка
+                    <span
+                      className={styles.deliveryInfoAmount}
+                    >{`Бесплатно`}</span>
+                  </div>
+                ) : null}
                 <div className={styles.totalPrice}>
                   Итоговая стоимость
                   <span className={styles.totalPriceAmount}>
